@@ -76,7 +76,15 @@ docker run -it -e POSTGRES_PASSWORD=password -p 5432:5432 postgres
 ```
 *Expliquer cette ligne de commande (y compris les options utilisées)*
 
-a revoir
+docker run est la commande principale de Docker utilisée pour exécuter un conteneur à partir d'une image.
+
+-it: permet à Docker de garder l'entrée standard ouverte même si aucun processus n'est attaché et alloue un terminal pseudo-TTY pour le conteneur.
+
+-e POSTGRES_PASSWORD=password: Cela définit une variable d'environnement 'POSTGRES_PASSWORD' pour le conteneur PostgreSQL. La valeur 'password' de cette variable est le mot de passe de l'utilisateur par défaut (postgres) de PostgreSQL.
+
+-p 5432:5432: Cela mappe le port 5432 du conteneur PostgreSQL au port 5432 de l'hôte. C'est le port par défaut utilisé par PostgreSQL pour les connexions client.
+
+postgres: C'est le nom de l'image Docker à partir de laquelle le conteneur est créé. Dans ce cas, il s'agit de l'image officielle de PostgreSQL disponible sur le hub Docker.
 
 * Compléter le code manquant dans la méthode `TodoListController.createTodoItem()`
 
@@ -110,6 +118,8 @@ NOTE: Pour lancer l'application Spring, sélectionner la classe `TodolistApplica
 
 * Vérifier avec DBeaver que les données sont bien en base PostgreSQL.
 oui les données sont bien présentes
+
+
 ### Exercice 2 - Refactoring en architecture hexagonale
 _Temps estimé : 1 h 20_
 
@@ -125,6 +135,7 @@ Source : http://leanpub.com/get-your-hands-dirty-on-clean-architecture[Tom Hombe
   - la couche `domain` qui contient les entités (au sens DDD, pas au sens JPA). En général des classes complexes (méthodes riches, relations entre les entités)
 
 *Rappeler en quelques lignes les grands principes de l'architecture hexagonale.*
+
 
 Compléter ce code avec une fonctionnalité de création de `TodoItem`  persisté en base et appelé depuis un endpoint REST `POST /todos` qui :
 

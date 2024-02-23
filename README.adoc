@@ -135,7 +135,12 @@ Source : http://leanpub.com/get-your-hands-dirty-on-clean-architecture[Tom Hombe
   - la couche `domain` qui contient les entités (au sens DDD, pas au sens JPA). En général des classes complexes (méthodes riches, relations entre les entités)
 
 *Rappeler en quelques lignes les grands principes de l'architecture hexagonale.*
-
+L'architecture hexagonale, également connue sous le nom de ports et adaptateurs, est un modèle d'architecture logicielle qui vise à rendre
+les systèmes logiciels plus flexibles, modulaires et faciles à tester et en maintenant le cœur de l'application indépendant des détails d'implémentation externes.
+Nous trouvons au centre de l'archirecture le domaine métier qui correspond à l'endroit où sera implémenter la logique métier. Les adaptateurs sont des composants
+qui permettent au cœur de l'application d'interagir avec le monde extérieur. Ils sont responsables de la traduction des données et des actions entre le cœur de l'application et
+les différents composants externes tels que les interfaces utilisateur, les bases de données, les services externes.  Les ports sont des interfaces qui définissent les points d'entrée et
+de sortie du cœur de l'application. Ils représentent les actions que le cœur de l'application peut effectuer et les données qu'il peut recevoir ou envoyer.
 
 Compléter ce code avec une fonctionnalité de création de `TodoItem`  persisté en base et appelé depuis un endpoint REST `POST /todos` qui :
 

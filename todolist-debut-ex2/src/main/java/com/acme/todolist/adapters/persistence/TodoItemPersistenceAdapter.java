@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
+import com.acme.todolist.application.port.in.AddTodoItem;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
@@ -40,13 +41,10 @@ public class TodoItemPersistenceAdapter implements LoadTodoItem,UpdateTodoItem {
 				.map(todoItemJpaEntory -> mapper.mapToTodoItem(todoItemJpaEntory)).collect(Collectors.toList());
 	}
 
+	// A completer
 	@Override
-	@PostMapping("/todos")
-	@ResponseStatus(code= HttpStatus.CREATED)
 	public void storeNewTodoItem(TodoItem item) {
-
+		this.todoItemRepository.save(this.mapper.mapToTodoItemJpaEntity(item));
 	}
-
-	// A compléter
 
 }

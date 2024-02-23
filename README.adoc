@@ -82,7 +82,8 @@ a revoir
 
 *Pourquoi `todoItemRepository` est-il `null` ? Quelle est la meilleure façon de l'injecter ?*
 
-il est nul car il recoit un elt de type todoitem au lieu d'un todoitemrepository
+il est nul car on n'avait pas instancier de Todoitem
+il faut faire une injection dans le controlleur
 
 * Modifier le code en conséquence.
 
@@ -108,7 +109,7 @@ NOTE: Pour lancer l'application Spring, sélectionner la classe `TodolistApplica
 * Quand le nouveau endpoint fonctionne, commiter, faire un push vers Github et fermer le projet Eclipse (ne pas le supprimer).
 
 * Vérifier avec DBeaver que les données sont bien en base PostgreSQL.
-
+oui les données sont bien présentes
 ### Exercice 2 - Refactoring en architecture hexagonale
 _Temps estimé : 1 h 20_
 
